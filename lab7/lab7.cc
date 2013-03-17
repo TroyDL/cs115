@@ -10,27 +10,28 @@
 #include "lab7.h"
 #include <iostream>
 using namespace std;
-void counting_sort(unsigned int * A, unsigned int * B, int K, int size); //prototype
+void counting_sort(unsigned int * A, int digit, int radix, int size); //prototype
+void LSD_radixSort(unsigned int * A, int size, int r);
 
 //'r' bits for each run.  Check with r = 4, 8, 16.  Use counting sort.
 void LSD_radixSort(unsigned int * A, int size, int r)
 {
   int D = (sizeof(unsigned int) * 8) / r;
   cout << "D = " << D << endl;
-  for( int i = 0; i < D; i++ )
+  for( int digit = 0; digit < D; digit++ )
   {
-
+    counting_sort(A,digit,r,size);
   }
 }
 
-
-void counting_sort(unsigned int * A, unsigned int * B, int K, int size)
+void counting_sort(unsigned int * A, int digit, int radix, int size)
 {
-  unsigned int *C[K];
-  for( int i=0; i<K; i++ )
-    C[i]=0;
-  for( int j=1; j<size; j++ )
-    C[A[j]]=C[A[j]]+1;
-  //C[i] now contains the # of elements = to i
+  int B[radix]; //create temp storage array
+  for( int i=0; i<radix; i++ )
+    B[i]=0; //fill array with 0's
+  //check each element and copy it into B where the index is equal to the
+  //element's specified digit
+  for( int i=0; i<size; i++ )
+  {
 
 }
