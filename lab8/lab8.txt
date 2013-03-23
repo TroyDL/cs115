@@ -1,0 +1,67 @@
+laboratory exercise 8
+
+again consider unsigned integers as keys. thistime we will do msd radix
+
+sort with r bitsfor each pass. that meansradix is 2^r . we use counting
+
+sort for each pass again. since thisisfrom msd, we don’t have to use a
+
+stable sorting algorithm. but, for each pass, the range of the valuesisfixed
+
+from 0 through some k asrequired in counting sort. in msd radix sort, we
+
+need to think buckets because sorting by the next digit is within each bucket.
+
+The Counting sort gives usthe indicesthatshow the bucket boundaries. A
+
+nice thing about MSD radix sort isthat we may not have to examine all the
+
+bits. Once a bucket has only one element, we don’t have to sort. But, it is
+
+expensive to run in this way forsmall buckets. So we will use Insertion sort
+
+to avoid that. Implement the corresponding procedure properly. Though the
+
+compiler converts certain arithmetic operationsto bit operations, it is good
+
+to know bit operations. Use bit operationsto extract a radix 2^r digit. Please
+
+note that if we use a huge radix for tiny files, we ruin the performance of
+
+MSD radix sort. Also note that this method worksfor variable-length keys
+
+like strings.
+
+On Mulan, the driver C++ program as an object file, driver8.o and the
+
+header file, lab8.h, that contains prototypes, are available in ~gdseki/CS115.
+
+Your procedures have to be put in file lab8.cc.
+
+The description of usage is asfollows:
+
+// Driver program for Lab 8.
+
+//
+
+// Options:
+
+// -test Evaluate performance.
+
+// -rand Use rand()to assign key values.
+
+// -order Generate sequentially ascending keys.
+
+// -reverse Generate sequentially descending keys.
+
+// -n <size> Size of the array.
+
+// -r <radix> Number of bits ofthe radix (e.g. -r 16).
+
+// -q Do not print the array contents.
+
+// -v Always print the array contents.
+
+// -help Print this help and exit.
+
+//
