@@ -31,8 +31,8 @@ void LSD_radixSort(unsigned int * A, int size, int r) //r4 for now
 void counting_sort(unsigned int * A, int size, int k, int digit) //r is unused at the moment
 {
   unsigned int count[k+1]; //count array
-  unsigned int aux[size]; //copy of a to be shifted and modded
-  unsigned int aux2[size]; //copy of a to remain an exact copy
+  unsigned int * aux = new unsigned int[size]; //copy of a to be shifted and modded
+  unsigned int * aux2 = new unsigned int[size]; //copy of a to remain an exact copy
   for( int i=0; i<k+1; i++ )
     count[i]=0; //initialize all of count array's elements to 0
   for( int i=0; i<size; i++ )
@@ -51,6 +51,8 @@ void counting_sort(unsigned int * A, int size, int k, int digit) //r is unused a
     A[count[aux[j]]-1]=aux2[j];
     count[aux[j]]--;
   }
+  delete aux;
+  delete aux2;
 }
 
 
